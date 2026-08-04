@@ -23,5 +23,5 @@ function Stats()
 		</div>
 	);
 }
-
+ 
 export default Stats;
