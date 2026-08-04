@@ -1,6 +1,6 @@
 import './App.css';
-import Stats from './components/Stats/Stats';
-import Testimonials from './components/Testimonials/Testimonials';
+import Stats from './projects-page/Stats/Stats';
+import Testimonials from './projects-page/Testimonials/Testimonials';
 
 function App() 
 {
