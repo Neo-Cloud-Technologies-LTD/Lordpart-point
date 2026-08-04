@@ -1,6 +1,6 @@
 import './App.css';
-import Stats from './projects-page/Stats/Stats';
-import Testimonials from './projects-page/Testimonials/Testimonials';
+import Stats from './Projects-page/Stats/Stats';
+import Testimonials from './Projects-page/Testimonials/Testimonials';
 
 function App() 
 {
