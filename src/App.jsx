@@ -1,15 +1,19 @@
-import './App.css';
-import Stats from './Projects-page/Stats/Stats';
-import Testimonials from './Projects-page/Testimonials/Testimonials';
+import Navbar from "./Home-page/components/Navbar";
+import Hero from "./Home-page/components/Hero";
+import Features from "./Home-page/components/Features";
+import About from "./Home-page/components/About";
 
-function App() 
-{
-	return (
-		<>
-			<Stats />
-			<Testimonials />
-		</>
-	);
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <Features />
+      <About />
+    
+    </>
+  );
 }
 
-export default App
+export default App;

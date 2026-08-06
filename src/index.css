@@ -1,13 +1,1 @@
-/* Basic root styles for the website */
-
-* 
-{
-    box-sizing: border-box;
-}
-
-body 
-{
-    margin: 0;
-    background-color: #000000;
-    font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-}
+@import "tailwindcss";
