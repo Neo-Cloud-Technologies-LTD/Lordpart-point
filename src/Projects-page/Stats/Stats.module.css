@@ -10,8 +10,7 @@
     margin: 40px auto;
 }
 
-.statItem 
-{
+.statItem {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +38,12 @@
     font-weight: 700;
     margin: 0;
 }
-
+.values{
+     color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
 .label 
 {
     color: #cfcfcf;
