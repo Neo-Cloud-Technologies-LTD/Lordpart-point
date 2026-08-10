@@ -1,0 +1,107 @@
+/* :root {
+  --gold: #c9a13b;
+  --gold-bright: #e0bb52;
+  --bg: #0b0b0b;
+  --white: #ffffff;
+} */
+
+.lp-hero-wrap {
+  padding: 28px 28px 40px;
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+}
+
+.lp-hero {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1.5px solid var(--gold);
+}
+
+.lp-hero-content {
+  padding: 56px 48px;
+  max-width: 640px;
+  color: var(--white);
+}
+
+.lp-eyebrow {
+  color: var(--gold-bright);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+
+.lp-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 46px;
+  line-height: 1.15;
+  margin: 0 0 20px;
+  color: var(--white);
+}
+
+.lp-hero-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f0f0f0;
+  max-width: 420px;
+  margin: 0;
+}
+
+.lp-hero-badge {
+  position: absolute;
+  bottom: 28px;
+  right: 36px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lp-hero-badge-text {
+  text-align: left;
+  line-height: 1.25;
+  color: var(--white);
+}
+
+.lp-hero-badge-text strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.lp-hero-badge-text span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--gold-bright);
+}
+
+.lp-logo-mark {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .lp-hero-title { font-size: 34px; }
+  .lp-hero-content { padding: 40px 28px; }
+}
+
+@media (max-width: 560px) {
+  .lp-hero-wrap { padding: 16px; }
+  .lp-hero { min-height: 380px; border-radius: 14px; }
+  .lp-hero-content { padding: 30px 22px; }
+  .lp-hero-title { font-size: 28px; }
+  .lp-hero-badge { position: static; margin-top: 24px; padding: 0 22px 22px; }
+}
