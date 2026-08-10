@@ -1,5 +1,4 @@
-/* Basic root styles for the website */
-
+@import "tailwindcss";
 * 
 {
     box-sizing: border-box;
