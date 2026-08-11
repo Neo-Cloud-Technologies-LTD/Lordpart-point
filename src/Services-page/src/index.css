@@ -1,0 +1,10 @@
+@layer base {
+  body {
+    background-color: #0A0D14;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif; /* Matches the clean corporate font profile */
+    margin: 0;
+    padding: 0;
+  }
+}
+@import "tailwindcss";
