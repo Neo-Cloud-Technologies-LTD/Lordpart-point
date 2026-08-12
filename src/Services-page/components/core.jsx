@@ -1,14 +1,17 @@
 
 import React from 'react';
+import sImage1 from '../../Services-page/public/serviceimage1.jpeg';
+import sImage2 from '../../Services-page/public/servicesimage2.jpeg';
+import sImage3 from '../../Services-page/public/servicesimage3.jpeg';
 
-export default function Services() {
+export default function Core() {
   //  Data configuration array 
   const servicesData = [
     {
       id: 1,
       title: "Construction",
       description: "Expert construction solutions that bring your vision to life with quality, safety, and timely delivery.",
-      image: "\serviceimage1.jpeg", 
+      image: sImage1, 
       icon: (
         <svg className="w-8 h-8 text-[#E2B755]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A4.835 4.835 0 0012 9a4.835 4.835 0 00-7.5 1.332V21m16.5 0h-18" />
@@ -20,7 +23,7 @@ export default function Services() {
       id: 2,
       title: "Infrastructure Development",
       description: "Building critical infrastructure that connects communities, support economics, and improve lives.",
-      image: "\servicesimage2.jpeg", 
+      image: sImage2, 
       icon: (
         <svg className="w-8 h-8 text-[#E2B755]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-10.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5-13.5h16.5m-16.5-3h16.5m-16.5 3v13.5m16.5-13.5v13.5" />
@@ -32,7 +35,7 @@ export default function Services() {
       id: 3,
       title: "Industrial Solution",
       description: "Delivering specialized industrial facilities and system with advanced technology and sustainable practices",
-      image: "\servicesimage3.jpeg", 
+      image: sImage3, 
       icon: (
         <svg className="w-8 h-8 text-[#E2B755]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.128l1.41-.513M5.106 17.785l1.15-.827m11.379-8.16l1.15-.827M8.14 21.27l.707-1.03m6.307-9.18l.706-1.03M12 3v1.5m0 15V21m-3.077-8.457l-.513-1.41m5.128-14.095l-.513-1.41M6.215 5.106l.827 1.15m8.16 11.379l.827 1.15m-10.24 3.505l1.03-.707m9.18-6.307l1.03-.706" />

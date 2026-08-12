@@ -1,5 +1,7 @@
-// src/components/hero.jsx
+
 import React from 'react';
+import buildingImage from '../../Services-page/public/your-building-image.jpeg';
+import companyLogo from '../../Services-page/public/Lordpart logo png.png';
 
 export default function Hero() {
   return (
@@ -8,7 +10,8 @@ export default function Hero() {
       {/* BACKGROUND GRAPHICS: Full-bleed modern architecture asset */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/your-building-image.jpeg" 
+          src={buildingImage}
+
           alt="Lordpart Point Global Corporate Building" 
           className="w-full h-full object-cover object-right lg:object-center"
         />
@@ -31,7 +34,7 @@ export default function Hero() {
       <header className="relative z-10 w-full flex justify-between items-center px-8 md:px-16 h-24 max-w-[1902px] mx-auto shrink-0">
         <div className="flex items-center gap-3">
           <img 
-            src="/Lordpart logo png.png" 
+            src={companyLogo}
             alt="Lordpart Point Logo" 
             className="h-9 w-auto object-contain" 
           />
