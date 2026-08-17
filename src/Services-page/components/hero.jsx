@@ -1,7 +1,6 @@
 
 import React from 'react';
 import buildingImage from '../../Services-page/public/your-building-image.jpeg';
-import companyLogo from '../../Services-page/public/Lordpart logo png.png';
 
 export default function Hero() {
   return (
@@ -30,42 +29,8 @@ export default function Hero() {
         <div className="absolute right-[20%] top-[40%] bottom-0 w-px bg-[#E2B755]/30"></div>
       </div>
 
-      {/* 1. TOP HEADER / NAVIGATION */}
-      <header className="relative z-10 w-full flex justify-between items-center px-8 md:px-16 h-24 max-w-[1902px] mx-auto shrink-0">
-        <div className="flex items-center gap-3">
-          <img 
-            src={companyLogo}
-            alt="Lordpart Point Logo" 
-            className="h-9 w-auto object-contain" 
-          />
-          <div className="flex flex-col">
-            <span className="font-extrabold tracking-wider text-sm leading-tight text-white">
-              LORDPART POINT
-            </span>
-            <span className="text-[9px] tracking-[0.25em] text-gray-400 font-medium mt-0.5">
-              GLOBAL LIMITED
-            </span>
-          </div>
-        </div>
-        
-        {/* FIX: Dynamic map rendering gold lines on ALL links during a hover state */}
-        <nav className="hidden md:flex gap-10 text-[13px] tracking-wide font-medium text-gray-300">
-          {['Home', 'About Us', 'Projects', 'Services', 'Contact Us'].map((link, idx) => (
-            <a 
-              key={idx} 
-              href={`#${link.toLowerCase().replace(' ', '')}`} 
-              className="relative py-2 text-gray-300 hover:text-white transition-colors duration-200 group"
-            >
-              {link}
-              {/* This line stays hidden normally, and slides outward when ANY nav item is hovered */}
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#E2B755] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
-            </a>
-          ))}
-        </nav>
-      </header>
-
-      {/* 2. TYPOGRAPHY CONTENT PANEL */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center items-start px-8 md:px-16 lg:pl-24 w-full max-w-[1902px] mx-auto py-16">
+      {/* TYPOGRAPHY CONTENT PANEL (the shared navbar is rendered by <Layout />) */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center items-start px-8 md:px-16 lg:pl-24 w-full max-w-[1902px] mx-auto pt-36 pb-16">
         
         <span className="text-[#E2B755] text-xs font-bold tracking-[0.3em] uppercase block mb-8">
           OUR SERVICES

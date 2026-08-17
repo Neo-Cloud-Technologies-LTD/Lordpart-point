@@ -1,4 +1,3 @@
-import Navbar from "../Components/Navbar";
 import Hero from "../Components/Hero";
 import Story from "../Components/Story";
 import Stats from "../Components/Stats";
@@ -10,7 +9,6 @@ import Footer from "../Components/Footer";
 function About() {
   return (
     <>
-      <Navbar />
       <Hero />
       <Story />
       <Stats />

@@ -1,4 +1,4 @@
-import {ShieldCheck, Crown, Infinity, Handshake, CircleCheck, Leaf} from "lucide-react";
+import {ShieldCheck, Crown, Infinity as InfinityIcon, Handshake, CircleCheck, Leaf} from "lucide-react";
 
 const values = [
   {
@@ -12,7 +12,7 @@ const values = [
     description: "We conduct business with integrity and transparency.",
   },
   {
-    icon: Infinity,
+    icon: InfinityIcon,
     title: "Innovation",
     description: "We embrace innovation to drive better results.",
   },

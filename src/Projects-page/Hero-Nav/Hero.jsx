@@ -1,67 +1,54 @@
-import "./Hero.css";
-import StatItem from "../Stats/StatItem";
-import { FaChartBar, FaCog, FaMapMarkerAlt, FaShieldAlt } from "react-icons/fa";
+import heroBg from "../hero/hero-bg.jpg";
 
 function Hero() {
-    return (
-        <section className="hero">
-            <div className="hero-top">
-                <div className="hero-content">
-                    <p className="hero-subtitle">OUR PROJECT</p>
+  return (
+    <section className="relative w-full overflow-hidden">
+      {/* Full-width backdrop */}
+      <img
+        src={heroBg}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-transparent"
+        aria-hidden="true"
+      />
 
-                   
-                        <h1 id="head">
-                        Engineering Excellence
-                        <br />
-                        <span>Delivering Impact.</span>
-                        </h1>
-                   
+      {/* Copy — constrained to the shared container */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-36 pb-20 sm:px-8 lg:px-12 lg:pt-44 lg:pb-24">
+        <div className="max-w-2xl">
+          <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.35em] text-[#D4AF37] sm:text-xs">
+            Our Projects
+          </p>
 
-                    <p className="hero-description">
-                        From Landmark developments to critical infrastructure,
-                        <br />
-                        our projects reflect our commitment to quality
-                        <br />
-                        innovation,and sustainable progress.
-                    </p>
+          <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl lg:leading-[1.15]">
+            Engineering Excellence
+            <br />
+            <span className="text-[#D4AF37]">Delivering Impact.</span>
+          </h1>
 
-                    <button className="hero-btn"> Explore Our Work </button>
-                </div>
+          <div className="mt-7 flex h-1 w-40 overflow-hidden rounded-full bg-white/15">
+            <span className="h-full w-2/3 bg-[#D4AF37]" />
+          </div>
 
-                <div className="hero-stats">
-                        <StatItem icon={<FaChartBar color=" #f2cb4b" />} 
-                        value="100+" 
-                        label="Projects Completed" />
-                        <div className="hero-divider"></div>
+          <p className="mt-7 max-w-xl text-base leading-relaxed text-gray-200 sm:text-lg">
+            From landmark developments to critical infrastructure, our projects
+            reflect our commitment to quality, innovation, and sustainable
+            progress.
+          </p>
 
-                        <StatItem  icon={<FaCog color="#f2cb4b"/>} 
-                        value="50" 
-                        label="Expert Professionals" />
-                        <div className="hero-divider"></div>
-
-                        <StatItem  icon={<FaMapMarkerAlt color="#f2cb4b"/>} 
-                        value="25" 
-                        label="Years of Experience" />
-                        <div className="hero-divider"></div>
-                        <StatItem  icon={<FaShieldAlt color="#f2cb4b"/>}
-                         value="98"
-                          label="Client Satisfaction" />
-
-                        
-                </div>
-            </div>
-
-            <div className="project-preview">
-                <div className="project-filters">
-                    <button className="active">All</button>
-                    <button>Commercial</button>
-                    <button>Industrial</button>
-                    <button>Infrastructure</button>
-                    <button>Residential</button>
-                </div>
-            </div>
-        </section>
-    );
+          <a
+            href="#project-gallery"
+            className="mt-10 inline-flex items-center justify-center gap-2 rounded-xl bg-[#D4AF37] px-7 py-3.5 font-semibold text-black shadow-lg transition hover:bg-[#e0bb52]"
+          >
+            Explore Our Work
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Hero;

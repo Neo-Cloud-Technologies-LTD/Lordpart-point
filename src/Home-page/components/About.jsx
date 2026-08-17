@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import about from "../assets/images/building.jpeg";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -19,10 +20,13 @@ function About() {
             various sectors.
           </h2>
 
-          <button className="mt-14 flex items-center gap-3 font-bold text-[22px] text-[#111] hover:text-yellow-500 transition">
+          <Link
+            to="/about"
+            className="mt-14 inline-flex items-center gap-3 font-bold text-[22px] text-[#111] hover:text-yellow-500 transition"
+          >
             Learn More
             <FiArrowRight className="text-yellow-500 text-3xl" />
-          </button>
+          </Link>
         </div>
 
         <div className="flex justify-end">

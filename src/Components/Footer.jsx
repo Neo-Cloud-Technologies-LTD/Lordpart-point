@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import {MapPin, Phone, Mail} from "lucide-react";
 import logo from "../assets/lordpart point logo.png";
+import { NAV_LINKS } from "./navLinks";
 
 function Footer() {
   return (
@@ -34,12 +36,16 @@ function Footer() {
             </h3>
 
             <ul className="space-y-3 text-gray-300 font-semibold">
-              <li className="cursor-pointer">Home</li>
-              <li className=" cursor-pointer">About Us</li>
-              <li className="cursor-pointer">Services</li>
-              <li className="cursor-pointer">
-                Our Process
-              </li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="transition-colors hover:text-[#D4AF37]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -50,10 +56,21 @@ function Footer() {
             </h3>
 
             <ul className="space-y-3 text-gray-300 font-semibold">
-              <li>Building Construction</li>
-              <li>Infrastructure</li>
-              <li>Project Management</li>
-              <li>Design & Build</li>
+              {[
+                "Building Construction",
+                "Infrastructure",
+                "Project Management",
+                "Design & Build",
+              ].map((service) => (
+                <li key={service}>
+                  <Link
+                    to="/services"
+                    className="transition-colors hover:text-[#D4AF37]"
+                  >
+                    {service}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

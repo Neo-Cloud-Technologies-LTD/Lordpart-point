@@ -1,11 +1,7 @@
 function Footer() {
   return (
-    <footer className="max-w-7xl mx-auto px-6 pb-8">
-      
-      {/* Gold line */}
-      <div className="border-t border-[#c8a33a]"></div>
-
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 text-center md:text-left">
+    <footer className="w-full border-t border-[#c8a33a]/25 bg-[#0A0D14]">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-center sm:px-8 md:flex-row md:text-left lg:px-12">
         
         {/* Copyright */}
         <p className="text-sm text-gray-200">
@@ -31,7 +27,6 @@ function Footer() {
           </a>
 
         </div>
-
       </div>
     </footer>
   );

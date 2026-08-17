@@ -1,12 +1,13 @@
-import "./ProjectCard.css";
+import { useMemo, useState } from "react";
+import { MapPin } from "lucide-react";
 
 const projects = [
     {
         id: 1,
         category: "Commercial",
-        title: "Lagos Business",
+        title: "Lagos Business Hub",
         location: "Ikeja, Lagos",
-        description: "Modern Office for productivity and growth",
+        description: "Modern office space designed for productivity and growth.",
         status: "Completed",
         image: "/images/business.jpg",
     },
@@ -15,7 +16,7 @@ const projects = [
         category: "Industrial",
         title: "Nigerian Oil and Gas",
         location: "Port Harcourt, Rivers",
-        description: "Engineering solutions",
+        description: "Specialised engineering solutions for energy operations.",
         status: "Completed",
         image: "/images/oil-gas.jpg",
     },
@@ -24,7 +25,7 @@ const projects = [
         category: "Industrial",
         title: "Industrial Warehouse",
         location: "Ogun State",
-        description: "Warehouse for industrial training",
+        description: "Large-scale warehousing built for logistics efficiency.",
         status: "Completed",
         image: "/images/warehouse.jpg",
     },
@@ -33,7 +34,7 @@ const projects = [
         category: "Infrastructure",
         title: "Abuja Road Expansion",
         location: "Abuja",
-        description: "Road expansion project and connectivity",
+        description: "Road expansion improving city-wide connectivity.",
         status: "Completed",
         image: "/images/road.jpg",
     },
@@ -42,7 +43,8 @@ const projects = [
         category: "Residential",
         title: "Lekki Luxury Villas",
         location: "Lekki, Lagos",
-        description: "Elite residential villas blending comfort, elegance and privacy",
+        description:
+            "Elite residential villas blending comfort, elegance and privacy.",
         status: "Completed",
         image: "/images/villas.jpg",
     },
@@ -51,36 +53,119 @@ const projects = [
         category: "Residential",
         title: "Abuja Modern House",
         location: "Abuja",
-        description: "Modern house for comfort and privacy",
+        description: "A contemporary home built for comfort and privacy.",
         status: "Completed",
         image: "/images/house.jpg",
     },
 ];
 
+const filters = [
+    "All",
+    "Commercial",
+    "Industrial",
+    "Infrastructure",
+    "Residential",
+];
+
 export default function ProjectCard() {
+    const [activeFilter, setActiveFilter] = useState("All");
+
+    const visibleProjects = useMemo(
+        () =>
+            activeFilter === "All"
+                ? projects
+                : projects.filter((project) => project.category === activeFilter),
+        [activeFilter]
+    );
+
     return (
-        <section className="projects">
-            {projects.map((project) => (
-                <div className="card" key={project.id}>
-                    <div className="image-box">
-                        <img src={project.image} alt={project.title} />
-                    </div>
+        <section
+            id="project-gallery"
+            className="w-full bg-black py-20 scroll-mt-24"
+        >
+            <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+                {/* Section header */}
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37]">
+                    Project Gallery
+                </p>
 
-                    <div className="card-content">
-                        <span className="category">{project.category}</span>
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+                    Selected Works
+                </h2>
 
-                        <h2>{project.title}</h2>
+                {/* Filters */}
+                <div className="mt-10 flex flex-wrap gap-3">
+                    {filters.map((filter) => {
+                        const isActive = filter === activeFilter;
 
-                        <h4>{project.location}</h4>
-
-                        <p>{project.description}</p>
-
-                        <hr/>
-
-                        <div className="status">{project.status}</div>
-                    </div>
+                        return (
+                            <button
+                                key={filter}
+                                type="button"
+                                onClick={() => setActiveFilter(filter)}
+                                aria-pressed={isActive}
+                                className={`rounded-xl px-6 py-3 text-sm font-bold transition ${
+                                    isActive
+                                        ? "bg-[#D4AF37] text-black"
+                                        : "border border-white/15 bg-white/5 text-gray-200 hover:border-[#D4AF37]/60 hover:text-white"
+                                }`}
+                            >
+                                {filter}
+                            </button>
+                        );
+                    })}
                 </div>
-           ) )}
+
+                {/* Cards */}
+                <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {visibleProjects.map((project) => (
+                        <article
+                            key={project.id}
+                            className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b0b] transition duration-300 hover:-translate-y-2 hover:border-[#D4AF37]/60"
+                        >
+                            {/* Image */}
+                            <div className="relative h-56 w-full overflow-hidden bg-white/5">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    loading="lazy"
+                                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+
+                                <span className="absolute left-4 top-4 rounded-full bg-black/75 px-3 py-1 text-xs font-semibold text-[#D4AF37] backdrop-blur-sm">
+                                    {project.category}
+                                </span>
+                            </div>
+
+                            {/* Body */}
+                            <div className="flex flex-1 flex-col p-6">
+                                <h3 className="text-lg font-bold text-white sm:text-xl">
+                                    {project.title}
+                                </h3>
+
+                                <p className="mt-2 flex items-center gap-2 text-sm text-gray-400">
+                                    <MapPin size={15} className="text-[#D4AF37]" />
+                                    {project.location}
+                                </p>
+
+                                <p className="mt-4 flex-1 text-sm leading-relaxed text-gray-300">
+                                    {project.description}
+                                </p>
+
+                                <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4">
+                                    <span className="text-xs uppercase tracking-wider text-gray-500">
+                                        Status
+                                    </span>
+
+                                    <span className="text-sm font-semibold text-[#D4AF37]">
+                                        {project.status}
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
         </section>
     );
 }

@@ -10,7 +10,7 @@ import Footer from './Footer';
 
 function Services() {
   return (
-    <main className="w-full min-h-screen bg-[#0A0D14]">
+    <div className="w-full min-h-screen bg-[#0A0D14]">
      
       <Hero /> 
     
@@ -20,11 +20,7 @@ function Services() {
     <ProcessSection/>
     <CTASection/>
     <Footer/>
-    
-
-
-
-    </main>
+    </div>
 
   
 

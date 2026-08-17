@@ -41,24 +41,28 @@ function ProcessSection() {
   ];
 
   return (
-    <section className="border border-[#c8a33a] rounded-2xl px-4 py-6 sm:px-6 md:px-8">
-      <div className="flex flex-col lg:flex-row gap-8">
+    <section className="w-full border-y border-[#c8a33a]/25 bg-[#0A0D14] py-20">
+      <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6 sm:px-8 lg:flex-row lg:gap-16 lg:px-12">
 
         {/* Left side */}
-        <div className="lg:w-1/5">
-          <p className="text-[#d5ad3d] text-sm font-bold uppercase mb-5">
+        <div className="lg:w-1/4">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-[#d5ad3d]">
             Our Process
           </p>
 
-          <h2 className="text-3xl font-bold leading-tight">
+          <h2 className="text-2xl font-bold leading-tight sm:text-3xl">
             Excellence in
             <br />
             Every Step
           </h2>
+
+          <div className="mt-6 flex h-1 w-32 overflow-hidden rounded-full bg-white/10">
+            <span className="h-full w-2/3 bg-[#d5ad3d]" />
+          </div>
         </div>
 
         {/* Steps */}
-        <div className="lg:w-4/5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:w-3/4 lg:grid-cols-5 lg:gap-6">
           {steps.map((step) => {
             const Icon = step.icon;
 

@@ -1,6 +1,5 @@
 import ctaImage from "../assets/cta image.jpeg";
 import logo from "../assets/lordpart point logo.png";
-import { ArrowRight } from "lucide-react";
 
 function CTA() {
   return (

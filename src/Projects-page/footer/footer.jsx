@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./footer.css";
 import {   MapPin, Phone, Mail } from "lucide-react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { NAV_LINKS } from "../../Components/navLinks";
 
 
 export default function Footer() {
@@ -35,20 +37,21 @@ export default function Footer() {
         <div className="lp-col">
           <h4 className="lp-col-title">Quick Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Our Process</a></li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.to}>
+                <Link to={link.to}>{link.label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className="lp-col">
           <h4 className="lp-col-title">Services</h4>
           <ul>
-            <li><a href="#">Building Construction</a></li>
-            <li><a href="#">Infrastructure</a></li>
-            <li><a href="#">Project Management</a></li>
-            <li><a href="#">Design &amp; Build</a></li>
+            <li><Link to="/services">Building Construction</Link></li>
+            <li><Link to="/services">Infrastructure</Link></li>
+            <li><Link to="/services">Project Management</Link></li>
+            <li><Link to="/services">Design &amp; Build</Link></li>
           </ul>
         </div>
 

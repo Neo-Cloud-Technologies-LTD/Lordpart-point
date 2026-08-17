@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import hero from "../assets/hero.jpeg";
 import { ArrowRight } from "lucide-react";
 
@@ -30,10 +31,13 @@ function Hero() {
                         innovation, quality craftsmanship, and unwavering integrity.
                     </p>
 
-                    <button className="flex items-center gap-2 bg-[#D4AF37] px-8 py-4 rounded-xl text-white font-semibold cursor-pointer">
+                    <Link
+                        to="/projects"
+                        className="inline-flex items-center gap-2 bg-[#D4AF37] px-8 py-4 rounded-xl text-white font-semibold cursor-pointer transition hover:bg-[#e0bb52]"
+                    >
                         View Our Projects
                         <ArrowRight size={20} />
-                    </button>
+                    </Link>
                 </div>
             </div>
             <div className="absolute bottom-0 left-0 w-full h-px bg-[#D4AF37]"></div>
