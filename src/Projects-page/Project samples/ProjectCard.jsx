@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { MapPin } from "lucide-react";
+import { Building2, MapPin } from "lucide-react";
 
 const projects = [
     {
@@ -69,6 +69,8 @@ const filters = [
 
 export default function ProjectCard() {
     const [activeFilter, setActiveFilter] = useState("All");
+    // Tracks images that failed to load so we can show a branded placeholder
+    const [brokenImages, setBrokenImages] = useState({});
 
     const visibleProjects = useMemo(
         () =>
@@ -125,12 +127,29 @@ export default function ProjectCard() {
                         >
                             {/* Image */}
                             <div className="relative h-56 w-full overflow-hidden bg-white/5">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    loading="lazy"
-                                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
+                                {brokenImages[project.id] ? (
+                                    // Fallback keeps the card layout intact if the asset is missing
+                                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-white/10 to-transparent">
+                                        <Building2
+                                            size={44}
+                                            strokeWidth={1.4}
+                                            className="text-[#D4AF37]/50"
+                                        />
+                                    </div>
+                                ) : (
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        loading="lazy"
+                                        onError={() =>
+                                            setBrokenImages((prev) => ({
+                                                ...prev,
+                                                [project.id]: true,
+                                            }))
+                                        }
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                )}
 
                                 <span className="absolute left-4 top-4 rounded-full bg-black/75 px-3 py-1 text-xs font-semibold text-[#D4AF37] backdrop-blur-sm">
                                     {project.category}
