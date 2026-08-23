@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+
 import './App.css';
 
 import Layout from './Components/Layout';
@@ -12,16 +14,19 @@ import Contact from './Contact-us-page/Contact';
 
 function App() {
 	return (
-		<Routes>
-			<Route element={<Layout />}>
-				<Route path="/" element={<Home />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/projects" element={<Projects />} />
-				<Route path="/services" element={<Services />} />
-				<Route path="/contact" element={<Contact />} />
-				<Route path="*" element={<NotFound />} />
-			</Route>
-		</Routes>
+		<>
+			<Routes>
+				<Route element={<Layout />}>
+					<Route path="/" element={<Home />} />
+					<Route path="/about" element={<About />} />
+					<Route path="/projects" element={<Projects />} />
+					<Route path="/services" element={<Services />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path="*" element={<NotFound />} />
+				</Route>
+			</Routes>
+			<Analytics />
+		</>
 	);
 }
 
