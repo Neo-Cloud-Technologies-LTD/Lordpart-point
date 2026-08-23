@@ -1,5 +1,7 @@
 import { Building2, Network, Factory } from "lucide-react";
 import ServiceStrip from "./ServiceStrip";
+import Reveal from "../../Components/animations/Reveal";
+import GoldRule from "../../Components/animations/GoldRule";
 import sImage1 from "../public/serviceimage1.jpeg";
 import sImage2 from "../public/servicesimage2.jpeg";
 import sImage3 from "../public/servicesimage3.jpeg";
@@ -39,17 +41,19 @@ export default function Core() {
     <div className="w-full bg-[#0A0D14] text-white">
       {/* Section header stays inside the shared container */}
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-10 sm:px-8 lg:px-12">
-        <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-[#E2B755]">
-          What We Do
-        </p>
+        <Reveal direction="up" distance={22}>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-[#E2B755]">
+            What We Do
+          </p>
+        </Reveal>
 
-        <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
-          Our Core Services
-        </h2>
+        <Reveal direction="up" distance={30} delay={120} duration={820}>
+          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+            Our Core Services
+          </h2>
+        </Reveal>
 
-        <div className="mt-6 flex h-1 w-40 overflow-hidden rounded-full bg-white/10">
-          <span className="h-full w-2/3 bg-[#E2B755]" />
-        </div>
+        <GoldRule width={160} delay={280} color="#E2B755" className="mt-6" />
       </div>
 
       {/* Full-width service bands */}
