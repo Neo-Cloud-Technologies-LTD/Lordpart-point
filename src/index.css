@@ -1,12 +1,174 @@
 @import "tailwindcss";
-* 
-{
+
+* {
     box-sizing: border-box;
 }
 
-body 
-{
+html {
+    /* Anchor links (#project-gallery) glide instead of jumping */
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
     background-color: #000000;
     font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+    /* Kills the horizontal jitter that parallax transforms can introduce */
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ENGINE
+   Driven by <Reveal /> (src/Components/animations/Reveal.jsx). Elements start
+   offset/faded and settle into place once IntersectionObserver adds
+   `.is-visible`. Every knob is a CSS variable so React can stagger freely.
+   ========================================================================== */
+
+.lp-reveal {
+    --lp-x: 0px;
+    --lp-y: 0px;
+    --lp-scale: 1;
+    --lp-blur: 0px;
+    --lp-delay: 0ms;
+    --lp-duration: 700ms;
+
+    opacity: 0;
+    filter: blur(var(--lp-blur));
+    transform: translate3d(var(--lp-x), var(--lp-y), 0) scale(var(--lp-scale));
+    transition:
+        opacity var(--lp-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--lp-delay),
+        transform var(--lp-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--lp-delay),
+        filter var(--lp-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--lp-delay);
+    will-change: opacity, transform;
+}
+
+.lp-reveal.is-visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Release the compositor hint once the animation has finished */
+.lp-reveal.is-visible {
+    will-change: auto;
+}
+
+/* ==========================================================================
+   AMBIENT / HOVER POLISH
+   ========================================================================== */
+
+/* Soft gold glow used on cards and stat tiles */
+.lp-glow-hover {
+    transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 400ms ease, border-color 400ms ease;
+}
+
+.lp-glow-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px -18px rgba(212, 175, 55, 0.45);
+}
+
+/* Slow gold shimmer that sweeps across headline accents */
+@keyframes lp-shimmer {
+    0% {
+        background-position: 200% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+
+.lp-shimmer-text {
+    background-image: linear-gradient(
+        100deg,
+        #d4af37 0%,
+        #f6e3a1 35%,
+        #d4af37 60%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: lp-shimmer 6s linear infinite;
+}
+
+/* Gentle float for hero badges / logos */
+@keyframes lp-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.lp-float {
+    animation: lp-float 6s ease-in-out infinite;
+}
+
+/* Scroll cue at the bottom of hero sections */
+@keyframes lp-scroll-cue {
+    0% {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+}
+
+.lp-scroll-cue {
+    animation: lp-scroll-cue 2s ease-in-out infinite;
+}
+
+/* Underline that grows on hover — used by footer/nav links */
+.lp-link-underline {
+    position: relative;
+}
+
+.lp-link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 0;
+    background-color: #d4af37;
+    transition: width 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-link-underline:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY — honour the OS "reduce motion" preference everywhere
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .lp-reveal {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .lp-shimmer-text,
+    .lp-float,
+    .lp-scroll-cue {
+        animation: none !important;
+    }
+
+    .lp-glow-hover:hover {
+        transform: none;
+    }
 }

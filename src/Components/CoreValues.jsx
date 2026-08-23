@@ -1,4 +1,13 @@
-import {ShieldCheck, Crown, Infinity, Handshake, CircleCheck, Leaf} from "lucide-react";
+import {
+  ShieldCheck,
+  Crown,
+  Infinity as InfinityIcon,
+  Handshake,
+  CircleCheck,
+  Leaf,
+} from "lucide-react";
+import Reveal from "./animations/Reveal";
+import GoldRule from "./animations/GoldRule";
 
 const values = [
   {
@@ -12,7 +21,7 @@ const values = [
     description: "We conduct business with integrity and transparency.",
   },
   {
-    icon: Infinity,
+    icon: InfinityIcon,
     title: "Innovation",
     description: "We embrace innovation to drive better results.",
   },
@@ -35,35 +44,46 @@ const values = [
 
 function CoreValues() {
   return (
-    <section className="bg-black border-x border-[#D4AF37]">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 py-16">
-            <h2 className="text-white text-4xl font-bold mb-10">
-                OUR CORE VALUES
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {values.map((value, index) => {
-                const Icon = value.icon;
-                return (
-                    <div
-                        key={index}
-                        className="bg-gray-500/22 border border-[#D4AF37] rounded-xl p-8"
-                    >
-                        <Icon
-                            size={42}
-                            className="text-[#D4AF37] mb-6"
-                            strokeWidth={2}
-                        />
-                        <h3 className="text-white text-2xl font-bold mb-4">
-                            {value.title}
-                        </h3>
-                        <p className="text-gray-300 leading-7">
-                            {value.description}
-                        </p>
-                    </div>
+    <section className="border-x border-[#D4AF37] bg-black">
+      <div className="mx-auto max-w-7xl px-8 py-16 lg:px-12">
+        <Reveal direction="up" distance={30} duration={860}>
+          <h2 className="mb-5 text-4xl font-bold text-white">OUR CORE VALUES</h2>
+        </Reveal>
+
+        <GoldRule width={160} delay={180} className="mb-10" />
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {values.map((value, index) => {
+            const Icon = value.icon;
+
+            return (
+              <Reveal
+                key={value.title}
+                direction="up"
+                distance={32}
+                delay={index * 110}
+                duration={780}
+                scale={0.96}
+                className="group rounded-xl border border-[#D4AF37] bg-gray-500/22 p-8 lp-glow-hover hover:border-[#e0bb52]"
+              >
+                <Icon
+                  size={42}
+                  strokeWidth={2}
+                  className="mb-6 text-[#D4AF37] transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110"
+                />
+
+                <h3 className="mb-4 text-2xl font-bold text-white">
+                  {value.title}
+                </h3>
+
+                <p className="leading-7 text-gray-300 transition-colors duration-300 group-hover:text-white">
+                  {value.description}
+                </p>
+              </Reveal>
             );
-            })}
-            </div>
+          })}
         </div>
+      </div>
     </section>
   );
 }
