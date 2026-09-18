@@ -44,7 +44,7 @@ function Navbar() {
         <Link to="/" className="flex items-center gap-2" aria-label="Lordpart Point home">
           <img
             src={logo}
-            alt="Lordpart Point Global Limited"
+            alt="Lordpart Point Nigeria Limited"
             className="h-10 w-auto md:h-12"
           />
           <span className="hidden leading-tight text-white sm:block">
@@ -52,7 +52,7 @@ function Navbar() {
               LORDPART POINT
             </span>
             <span className="block text-[9px] tracking-[0.25em] text-[#D4AF37] md:text-[10px]">
-              GLOBAL LIMITED
+              NIGERIA LIMITED
             </span>
           </span>
         </Link>
